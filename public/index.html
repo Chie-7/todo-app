@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="./favicon.ico" href="<%= BASE_URL %>favicon.ico">
+    <title>toDoメモ</title>
+    <!--iPhone用フルスクリーンにする-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--ホーム画面にアイコンを登録する（Android対応）-->
+    <link href="favicon.ico" rel="apple-touch-icon">
+
+    <!--Android用フルスクリーンにする-->
+    <script>
+      let userA = navigator.userAgent;
+      if(userA.indexOf('Android') >= 0){
+          setTimeout(function(){
+              //setTimeoutは「ページの読み込みが終わったタイミングで」の意味
+              window.scrollBy(0, 1);
+              //scrollBy(0,1)は横スクロールは0、縦（上）に１行スクロールさせる命令
+          },100);//100はミリ秒即ち0.1秒を指す
+      }
+      //もしAndroidの時は、ページの読み込みが終わったタイミングで0.1秒掛けてページを１行分上へスクロールさせる
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+[v-cloak] {
+  display: none; /*ページを開いた時に一瞬「{{◯◯◯}}」のVue構文が見えてしまうのを防ぐ。p122*/
+}
+/*ここからPCで開いた時（幅641以上の時）*/
+@media screen and (min-width: 641px) {
+  html,
+  body,
+  #app {
+    width: 375px;
+    height: 812px;
+  }
+}
+/*ここからスマホで開いた時（幅641以下の時）*/
+@media screen and (max-width: 640px) {
+  html,
+  body,
+  #app {
+    width: 100%;
+    height: 100%;
+  }
+}
+body {
+  background-image: url(./images/bg_lt.png), url(./images/bg_rt.png),
+    url(./images/bg_rb.png), url(./images/bg_lb.png);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: left top, right top, right bottom, left bottom;
+}
+#app {
+  width: 100%;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+.errMessage {
+  font-size: 14px;
+  color: red;
+  margin-left: 10px;
+}
+#title1 {
+  /*toDoリストタイトル*/
+  color: rgba(0, 0, 0, 0);
+  background-image: url(./images/title1.gif);
+  background-repeat: no-repeat;
+  background-position: center top;
+  margin-top: 28px;
+}
+#title2 {
+  color: rgba(0, 0, 0, 0);
+  background-image: url(./images/title2.gif);
+  background-repeat: no-repeat;
+}
+ul {
+  list-style-type: none;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url(./images/done.gif);
+  border: none;
+  width: 51px; /*画像と同じ幅にする*/
+  height: 27px; /*画像と同じ高さにする*/
+  vertical-align: bottom; /*画像の後ろに続く文字と下揃えにする*/
+  outline: none; /*輪郭線を表示しない*/
+}
+.todo-list {
+  margin-bottom: 25px; /*todoリストと登録欄との間の余白*/
+}
+.todolist li {
+  margin-bottom: 10px; /*todoリストの項目の行間*/
+}
+input[type="text"] {
+  -webkit-appearance: none;
+  appearance: none; /*デフォルトの外観・見栄えを無効にする*/
+  border: none; /*テキストフィールドの罫線を消す*/
+  background-image: url(./images/input.gif);
+  width: 220px; /*画像と同じ幅に指定する*/
+  height: 23px; /*画像と同じ高さに指定する*/
+  padding-left: 4px; /*画像の罫線と入力した文字との間に余白を開ける*/
+  margin-right: 15px; /*右横に表示される登録ボタンとの間に余白を開ける*/
+}
+input::placeholder {
+  color: #ccc; /*入力前のダミーテキストの文字色*/
+}
+button {
+  /*登録ボタンのスタイル*/
+  -webkit-appearance: none;
+  appearance: none; /*デフォルトの外観・見栄えを無効にする*/
+  border: none; /*<button>タグの罫線を無くす*/
+  background-image: url(./images/regist.gif);
+  width: 51px; /*画像と同じ*/
+  height: 26px; /*画像と同じ*/
+  color: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /*画像に文字が打ってあるのでHTMLの文字色は透明にする*/
+  outline: none; /*輪郭線も表示されるので無くす*/
+}
